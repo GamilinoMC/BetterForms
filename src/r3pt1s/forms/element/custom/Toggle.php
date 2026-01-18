@@ -11,7 +11,8 @@ final class Toggle extends CustomFormElement implements InteractiveElement {
     public function __construct(
         string $name,
         string $text,
-        private readonly bool $default = false
+        private readonly bool $default = false,
+        private readonly ?string $tooltip = null
     ) {
         parent::__construct($name, $text);
     }
@@ -25,6 +26,6 @@ final class Toggle extends CustomFormElement implements InteractiveElement {
     }
 
     protected function write(): array {
-        return ["default" => $this->default];
+        return ["default" => $this->default, "tooltip" => $this->tooltip];
     }
 }

@@ -14,7 +14,8 @@ final class Slider extends CustomFormElement implements InteractiveElement {
         private readonly float $min,
         private readonly float $max,
         private readonly float $step = 1.0,
-        private readonly ?float $default = null
+        private readonly ?float $default = null,
+        private readonly ?string $tooltip = null
     ) {
         parent::__construct($name, $text);
     }
@@ -45,6 +46,7 @@ final class Slider extends CustomFormElement implements InteractiveElement {
             "max" => $this->max,
             "step" => $this->step,
             "default" => $this->default,
+            "tooltip" => $this->tooltip
         ];
     }
 }

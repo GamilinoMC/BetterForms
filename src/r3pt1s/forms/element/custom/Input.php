@@ -12,7 +12,8 @@ final class Input extends CustomFormElement implements InteractiveElement {
         string $name,
         string $text,
         private readonly string $hintText = "",
-        private readonly string $defaultText = ""
+        private readonly string $defaultText = "",
+        private readonly ?string $tooltip = null
     ) {
         parent::__construct($name, $text);
     }
@@ -22,6 +23,6 @@ final class Input extends CustomFormElement implements InteractiveElement {
     }
 
     protected function write(): array {
-        return ["placeholder" => $this->hintText, "default" => $this->defaultText];
+        return ["placeholder" => $this->hintText, "default" => $this->defaultText, "tooltip" => $this->tooltip];
     }
 }

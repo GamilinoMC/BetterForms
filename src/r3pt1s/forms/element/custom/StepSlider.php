@@ -14,7 +14,8 @@ final class StepSlider extends CustomFormElement implements InteractiveElement, 
         string $name,
         string $text,
         private readonly array $options,
-        private readonly int $defaultIndex = 0
+        private readonly int $defaultIndex = 0,
+        private readonly ?string $tooltip = null
     ) {
         parent::__construct($name, $text);
         if (!isset($this->options[$this->defaultIndex])) {
@@ -35,6 +36,6 @@ final class StepSlider extends CustomFormElement implements InteractiveElement, 
     }
 
     protected function write(): array {
-        return ["steps" => $this->options, "default" => $this->defaultIndex];
+        return ["steps" => $this->options, "default" => $this->defaultIndex, "tooltip" => $this->tooltip];
     }
 }

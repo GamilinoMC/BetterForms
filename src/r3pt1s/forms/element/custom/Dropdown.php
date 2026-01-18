@@ -14,7 +14,8 @@ final class Dropdown extends CustomFormElement implements InteractiveElement, Se
         string $name,
         string $text,
         private readonly array $options,
-        private readonly int $defaultIndex = 0
+        private readonly int $defaultIndex = 0,
+        private readonly ?string $tooltip = null
     ) {
         parent::__construct($name, $text);
         if (!isset($this->options[$this->defaultIndex])) {
@@ -35,6 +36,6 @@ final class Dropdown extends CustomFormElement implements InteractiveElement, Se
     }
 
     protected function write(): array {
-        return ["options" => $this->options, "default" => $this->defaultIndex];
+        return ["options" => $this->options, "default" => $this->defaultIndex, "tooltip" => $this->tooltip];
     }
 }
