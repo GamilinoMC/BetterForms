@@ -57,9 +57,10 @@ final class CustomFormBuilder {
         string $name,
         string $text,
         string $hintText = "",
-        string $defaultText = ""
+        string $defaultText = "",
+        ?string $tooltip = null
     ): self {
-        $this->elements[] = new Input($name, $text, $hintText, $defaultText);
+        $this->elements[] = new Input($name, $text, $hintText, $defaultText, $tooltip);
         return $this;
     }
 
@@ -67,9 +68,10 @@ final class CustomFormBuilder {
         string $name,
         string $text,
         array $options = [],
-        int $defaultIndex = 0
+        int $defaultIndex = 0,
+        ?string $tooltip = null
     ): self {
-        $this->elements[] = new Dropdown($name, $text, $options, $defaultIndex);
+        $this->elements[] = new Dropdown($name, $text, $options, $defaultIndex, $tooltip);
         return $this;
     }
 
@@ -77,9 +79,10 @@ final class CustomFormBuilder {
         string $name,
         string $text,
         array $options = [],
-        int $defaultIndex = 0
+        int $defaultIndex = 0,
+        ?string $tooltip = null
     ): self {
-        $this->elements[] = new StepSlider($name, $text, $options, $defaultIndex);
+        $this->elements[] = new StepSlider($name, $text, $options, $defaultIndex, $tooltip);
         return $this;
     }
 
@@ -89,18 +92,20 @@ final class CustomFormBuilder {
         float $min,
         float $max,
         float $step = 1.0,
-        ?float $default = null
+        ?float $default = null,
+        ?string $tooltip = null
     ): self {
-        $this->elements[] = new Slider($name, $text, $min, $max, $step, $default);
+        $this->elements[] = new Slider($name, $text, $min, $max, $step, $default, $tooltip);
         return $this;
     }
 
     public function toggle(
         string $name,
         string $text,
-        bool $default = false
+        bool $default = false,
+        ?string $tooltip = null
     ): self {
-        $this->elements[] = new Toggle($name, $text, $default);
+        $this->elements[] = new Toggle($name, $text, $default, $tooltip);
         return $this;
     }
 
